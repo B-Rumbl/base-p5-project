@@ -27,7 +27,7 @@
 let x = 0;
 let y = 0;
 let theta = 0;
-let inc = 0.001; // amount to increment the offset each frame
+let inc = 0.1; // amount to increment the offset each frame
 let offset = 0; //amount offset from beginning of wave
 let amplitude;
 let freq;
@@ -63,8 +63,8 @@ function draw() {
         // }
         for (i = length * 0.8; i > 0; i--) {
             rotate(1.5);
-            y = tan(theta - (i + 1)) * amplitude;
-            fill(255 - (255 / length * i), 0, 150, 100);
+            y = sin(theta - (i + 1)) * amplitude;
+            fill(0 , 150 - (255 / length * i), 150, noiseVal*100);
             square(x, y + width * 0.55, (13 + i));
             // rotate(5);
             // let noiseVal = noise(theta + 1);
