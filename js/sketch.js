@@ -27,7 +27,7 @@
 let x = 0;
 let y = 0;
 let theta = 0;
-let inc = 0.008; // amount to increment the offset each frame
+let inc = 0.001; // amount to increment the offset each frame
 let offset = 0; //amount offset from beginning of wave
 let amplitude;
 let freq;
@@ -38,45 +38,55 @@ function setup() {
     freq = windowWidth * 0.5;
     maxAngle = (windowWidth / freq) * PI;
     createCanvas(windowWidth, windowHeight);
+    
 
 }
 function draw() {
     background(0);
     noStroke();
-    let length = 100;
+    noFill();
+    let length = 233;
     while (theta < maxAngle + offset) {
+        stroke(255);
+        strokeWeight(5);
         //sine wave
         // amplitude = sin(theta - offset) * windowHeight/2
-        amplitude = (theta - offset) / maxAngle * (windowHeight * 3)// this allows for smaller sine wave at left side of screen
+        amplitude = (theta - offset) / maxAngle * (windowHeight * 0.5)// this allows for smaller sine wave at left side of screen
 
-        //bouncing white dots on the screen
+        // bouncing white dots on the screen
         // for (i = length; i > 0; i--) {
         //     rotate(3);
         //     y = sin(theta - (i * 0.1)) * amplitude;
         //     fill(255);
         //     circle(x, y + height * 0.55, 5);
         // }
-        for (i = length*.8; i > 0; i--) {
-            // rotate(3);
-            y = tan(theta - (i * 0.01)) * amplitude;
-            fill(255 - (255 / length * i), 0, 150);
-            circle(x, y + width * 0.55, (10 + i));
+        for (i = length * 0.8; i > 0; i--) {
+            rotate(3);
+            y = tan(theta - (i + 1)) * amplitude;
+            // fill(255 - (255 / length * i), 0, 150);
+            circle(x, y + width * 0.55, (89 + i));
             // rotate(5);
             // let noiseVal = noise(theta + 1);
             // stroke(noiseVal*255, 0, 255)
             // line(z, theta + noiseval*150, z, height)
         }
-        for (z = length*0.1; z > 0; z--) {
-            // rotate(2 + z);
-            y = sin(theta - (i * 0.1)) * amplitude;
-            fill(255, 50, 150 - (255 / length * i));
-            circle(z + 1, y + width * 0.1, (10 + i));
-        }
+        // for (c = length * 0.5; i < 0; c++) {
+        //     y = tan(theta - (c * 0.01)) * amplitude;
+        //     fill(0, 255 - (255 / length * c), 255);
+        //     circle(x, y + width * 0.89, (8 + i));
+        // }
+
+        // for (z = length*0.1; z > 0; z--) {
+        //     // rotate(2 + z);
+        //     y = sin(theta - (i * 0.1)) * amplitude;
+        //     fill(255, 50, 150 - (255 / length * i));
+        //     circle(z + 1, y + width * 0.1, (10 + i));
+        // }
         // for (i = length; i > 0; i--) {
         //     y = sin(theta - (i * 0.1)) * amplitude;
         //     fill(0, 255 - (255 / length * i), 50);
         //     circle(x, y + height * 0.55, 5);
-        
+
         // }
         //  for(i = length; i > 0; i--){
         //     y = cos(theta - (i * 0.3)) * amplitude;
@@ -84,7 +94,7 @@ function draw() {
         //     circle(x, y + height * 0.89, 100);
         //  }
 
-        theta += 0.2;
+        theta += 0.25;
         x = ((theta - offset) / maxAngle) * windowWidth;
     }
     offset += inc
