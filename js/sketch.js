@@ -63,7 +63,7 @@ function draw() {
         // }
         for (i = length * 0.8; i > 0; i--) {
             rotate(1.5);
-            y = sin(theta - (i + 1)) * amplitude;
+            y = tan(theta - (i + 1)) * amplitude;
             fill(0 , 150 - (255 / length * i), 150, noiseVal*100);
             square(x, y + width * 0.55, (13 + i));
             // rotate(5);
