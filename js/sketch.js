@@ -27,7 +27,7 @@
 let x = 0;
 let y = 0;
 let theta = 0;
-let inc = 0.1; // amount to increment the offset each frame
+let inc = 0.01; // amount to increment the offset each frame
 let offset = 0; //amount offset from beginning of wave
 let amplitude;
 let freq;
@@ -43,13 +43,13 @@ function setup() {
 }
 function draw() {
     background(0);
-    // noStroke();
+    noStroke();
     // noFill();
     let length = 500;
     while (theta < maxAngle + offset) {
-        let noiseVal = noise(theta + x)
-        stroke(noiseVal*255, 0, 255, 255, 100);
-        strokeWeight(amplitude*0.01);
+        let noiseVal = noise(1000)
+        // stroke(noiseVal*255, 0, 255, 255, 100);
+        // strokeWeight(amplitude*0.01);
         //sine wave
         // amplitude = sin(theta - offset) * windowHeight/2
         amplitude = (theta - offset) / maxAngle * (windowHeight * 0.5)// this allows for smaller sine wave at left side of screen
@@ -63,7 +63,7 @@ function draw() {
         // }
         for (i = length * 0.8; i > 0; i--) {
             rotate(1.5);
-            y = tan(theta - (i + 1)) * amplitude;
+            y = sin(theta - (i + 1)) * freq;
             fill(0 , 150 - (255 / length * i), 150, noiseVal*100);
             square(x, y + width * 0.55, (13 + i));
             // rotate(5);
