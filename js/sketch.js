@@ -1,3 +1,29 @@
+// let noiseScale=0.005;
+
+// function setup() {
+//     createCanvas(windowWidth, windowHeight)
+// }
+
+// function draw() {
+//   background(0);
+//   for (let x=0; x < windowWidth; x ++) {
+//     let noiseVal = noise((mouseX+x)*noiseScale, mouseY*noiseScale*3);
+//     stroke(noiseVal*255, 0, 0);
+//     line(x, mouseY+noiseVal*1000, x, height);
+//     // xoff = xoff + 0.01;
+//     // let n = noise(xoff) * (width * 2);
+//     // line(n, 0, n, height);
+//   }
+// }
+
+
+
+
+
+
+// //POINT EDITS BELOW
+// //POINT EDITS BELOW
+// //POINT EDITS BELOW
 let x = 0;
 let y = 0;
 let theta = 0;
@@ -17,7 +43,7 @@ function setup() {
 function draw() {
     background(0);
     noStroke();
-    let length = 50;
+    let length = 100;
     while (theta < maxAngle + offset) {
         //sine wave
         // amplitude = sin(theta - offset) * windowHeight/2
@@ -30,19 +56,21 @@ function draw() {
         //     fill(255);
         //     circle(x, y + height * 0.55, 5);
         // }
-        for (i = length; i > 0; i--) {
-            rotate(3);
+        for (i = length*.8; i > 0; i--) {
+            // rotate(3);
             y = tan(theta - (i * 0.01)) * amplitude;
             fill(255 - (255 / length * i), 0, 150);
-            circle(x, y + width * 0.55, (50 + i));
-            rotate(5);
+            circle(x, y + width * 0.55, (10 + i));
+            // rotate(5);
+            // let noiseVal = noise(theta + 1);
+            // stroke(noiseVal*255, 0, 255)
+            // line(z, theta + noiseval*150, z, height)
         }
-        for (z = length; z > 0; z--) {
-            rotate(8);
+        for (z = length*0.1; z > 0; z--) {
+            // rotate(2 + z);
             y = sin(theta - (i * 0.1)) * amplitude;
             fill(255, 50, 150 - (255 / length * i));
-            circle(z, y + width * 0.1, (10 + i));
-            // rotate(5);
+            circle(z + 1, y + width * 0.1, (10 + i));
         }
         // for (i = length; i > 0; i--) {
         //     y = sin(theta - (i * 0.1)) * amplitude;
