@@ -17,10 +17,23 @@ function setup() {
 function draw() {
     background(0);
     // noStroke();
-    fill(255, 0, 255);
+    
     while (theta < maxAngle + offset) {
+        //sine wave
         y = sin(theta) * amplitude;
+        fill(255, 0, 255);
         circle(x, y + height * 0.5, 500);
+        // rotate(2);
+        //cosine wave
+        y = cos(theta) * amplitude;
+        fill(150, 0, 255);
+        circle(x, y + height * 0.5, 500);
+        // rotate(4);
+        //tangent
+        y = tan(theta) * amplitude;
+        fill(255, 0, 150);
+        square(x, y + height * 0.5, 350);
+        // rotate(6)
         theta += 0.2;
         x = ((theta-offset) / maxAngle) * windowWidth;
     }
