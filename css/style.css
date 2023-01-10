@@ -2,8 +2,13 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: rgb(0, 255, 234);
 }
 canvas {
   display: block;
 }
+
+/* #skwer{
+  color: magenta;
+  font-family: Arial, Helvetica, sans-serif;
+} */
