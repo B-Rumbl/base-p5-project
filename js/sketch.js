@@ -43,12 +43,13 @@ function setup() {
 }
 function draw() {
     background(0);
-    noStroke();
+    // noStroke();
     noFill();
-    let length = 233;
+    let length = 477;
     while (theta < maxAngle + offset) {
-        stroke(255);
-        strokeWeight(5);
+        let noiseVal = noise(theta + x)
+        stroke(noiseVal*255);
+        strokeWeight(1);
         //sine wave
         // amplitude = sin(theta - offset) * windowHeight/2
         amplitude = (theta - offset) / maxAngle * (windowHeight * 0.5)// this allows for smaller sine wave at left side of screen
@@ -64,7 +65,7 @@ function draw() {
             rotate(3);
             y = tan(theta - (i + 1)) * amplitude;
             // fill(255 - (255 / length * i), 0, 150);
-            circle(x, y + width * 0.55, (89 + i));
+            square(x, y + width * 0.55, (89 + i));
             // rotate(5);
             // let noiseVal = noise(theta + 1);
             // stroke(noiseVal*255, 0, 255)
