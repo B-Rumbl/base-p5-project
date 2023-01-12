@@ -1,26 +1,3 @@
-// let noiseScale=0.005;
-
-// function setup() {
-//     createCanvas(windowWidth, windowHeight)
-// }
-
-// function draw() {
-//   background(0);
-//   for (let x=0; x < windowWidth; x ++) {
-//     let noiseVal = noise((mouseX+x)*noiseScale, mouseY*noiseScale*3);
-//     stroke(noiseVal*255, 0, 0);
-//     line(x, mouseY+noiseVal*1000, x, height);
-//     // xoff = xoff + 0.01;
-//     // let n = noise(xoff) * (width * 2);
-//     // line(n, 0, n, height);
-//   }
-// }
-
-
-
-
-
-
 // //POINT EDITS BELOW
 // //POINT EDITS BELOW
 // //POINT EDITS BELOW
@@ -38,8 +15,6 @@ function setup() {
     freq = windowWidth * 0.5;
     maxAngle = (windowWidth / freq) * PI;
     createCanvas(windowWidth, windowHeight);
-    
-
 }
 function draw() {
     background(0);
@@ -47,54 +22,23 @@ function draw() {
     // noFill();
     let length = 600;
     while (theta < maxAngle + offset) {
-        let noiseVal = noise(1000)
-        stroke(noiseVal*255, 0, 0, 100);
+        let noiseVal = noise(10)
+        stroke(noiseVal*255, 0, 0, 255);
         strokeWeight(amplitude*0.003);
         //sine wave
         // amplitude = sin(theta - offset) * windowHeight/2
         amplitude = (theta - offset) / maxAngle * (windowHeight * 0.5)// this allows for smaller sine wave at left side of screen
 
-        // bouncing white dots on the screen
-        // for (i = length; i > 0; i--) {
-        //     rotate(3);
-        //     y = sin(theta - (i * 0.1)) * amplitude;
-        //     fill(255);
-        //     circle(x, y + height * 0.55, 5);
-        // }
         for (i = length * 0.8; i > 0; i--) {
             rotate(1.5);
             y = sin(theta - (i + 1)) * freq;
-            fill(255 - (255 / length * i), 0, 00, noiseVal*100);
-            square(x, y + width * 0.55, (5 + i*0.5));
+            fill(255, 0, 00, noiseVal*100);
+            square(x, y + width * 0.55, (5 + i*0.2));
             // rotate(5);
             // let noiseVal = noise(theta + 1);
             // stroke(noiseVal*255, 0, 255)
             // line(z, theta + noiseval*150, z, height)
         }
-        // for (c = length * 0.5; i < 0; c++) {
-        //     y = tan(theta - (c * 0.01)) * amplitude;
-        //     fill(0, 255 - (255 / length * c), 255);
-        //     circle(x, y + width * 0.89, (8 + i));
-        // }
-
-        // for (z = length*0.1; z > 0; z--) {
-        //     // rotate(2 + z);
-        //     y = sin(theta - (i * 0.1)) * amplitude;
-        //     fill(255, 50, 150 - (255 / length * i));
-        //     circle(z + 1, y + width * 0.1, (10 + i));
-        // }
-        // for (i = length; i > 0; i--) {
-        //     y = sin(theta - (i * 0.1)) * amplitude;
-        //     fill(0, 255 - (255 / length * i), 50);
-        //     circle(x, y + height * 0.55, 5);
-
-        // }
-        //  for(i = length; i > 0; i--){
-        //     y = cos(theta - (i * 0.3)) * amplitude;
-        //     fill(255, 255- (255/length * i), 0);
-        //     circle(x, y + height * 0.89, 100);
-        //  }
-
         theta += 0.25;
         x = ((theta - offset) / maxAngle) * windowWidth;
         
