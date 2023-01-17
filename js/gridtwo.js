@@ -6,8 +6,9 @@ let y = 0;
 function setup() {
     colors = [color('#B31583'), color('#FFDC1F'), color('#FF06B5'), color('#1FFBFF'), color('#0CB0B3')]
     createCanvas(windowWidth - (50), windowHeight - (50));
-    background(random(colors));
+    background(0);
     const CELL_SIZE = 200;
+    frameRate(30);
     // while (y < height) {
     //     while (x < width) {
     //         noStroke();
@@ -50,12 +51,19 @@ function draw() {
             let y2 = y + random(CELL_SIZE);
             let x3 = x + random(CELL_SIZE);
             let y3 = y + CELL_SIZE;
-            let r = random(CELL_SIZE * 0.25);
-            fill(random(colors));
-            stroke(random(colors));
+            let r = random(10, 25);
+            // fill(random(colors));
+            // fill(random(10, 255));
+            noFill();
+            stroke(random(100, 255));
+            strokeWeight(random(5, 10));
+            strokeJoin(ROUND);
             triangle(x1, y1, x2, y2, x3, y3);
-            fill(random(colors));
-            stroke(0)
+            // fill(random(colors));
+            fill(255);
+            // noFill();
+            // stroke(random(50, 255));
+            noStroke();
             strokeWeight(random(5, 10))
             ellipse(x1, y1, r);
             ellipse(x2, y2, r);
