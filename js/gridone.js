@@ -9,18 +9,28 @@ function setup() {
     let yVar = 8;
     let wVar = 13;
     let hVar = 21;
-    let sizes = [CELL_SIZE, CELL_SIZE 8 2, CELL_SIZE * 3];
+    let sizes = [CELL_SIZE, CELL_SIZE * 2, CELL_SIZE * 3];
     let curH = random(sizes)
     let curW = random(sizes)
-    let col = [color('#B31583'), color ('#FFDC1F'), color('#FF06B5'), color('#1FFBFF'), color('#0CB0B3')]
+    let col = [color('#B31583'), color ('#FFDC1F'), color('#FF06B5'), color('#1FFBFF'), color('#0CB0B3')];
     while(y < height) {
         while(x < width){
             fill(random(col))
-            // rect(x+random(-xVar, xVar), y + random(-yVar, yVar), CELL_SIZE + random (-wVar, wVar), CELL_SIZE + random(-hVar, hVar));
             rect(x, y, curW, curH);
             x+= curW;
+            let availW = width - x;
+            curW = random(sizes);
+            while (curW > availW){
+                curW -= CELL_SIZE
+            }
         }
         y+= curH;
+        let availH = height - y;
+        curH = random(sizes)
+        while (curH > availH){
+            curH -= CELL_SIZE;
+        }
         x = 0;
+        y = 0;
     }
 }
