@@ -1,5 +1,5 @@
 function setup() {
-    const CELL_SIZE = 144;
+    const CELL_SIZE = 233;
     createCanvas(1200,1200);
     background(125);
     noStroke();
