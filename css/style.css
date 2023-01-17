@@ -10,5 +10,6 @@ body {
 }
 canvas {
   display: block;
-  outline: 10px solid white;
+  /* outline: 10px solid white; */
+  /* mix-blend-mode: exclusion; */
 }
