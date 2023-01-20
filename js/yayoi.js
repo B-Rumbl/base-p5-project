@@ -8,6 +8,7 @@ let sizes = [CELL_SIZE, CELL_SIZE * 0.25, CELL_SIZE * 0.5, CELL_SIZE * 0.75];
 function setup() {
     createCanvas(windowWidth, windowHeight);
     colors = [color('#165C9C'), color('#EB0A00'), color('#D9E820'), color('#EB9400'), color('FFFFFF')];
+    // colors = [color('#165C9C'), color('#EB0A00'), color('#D9E820'), color('#EB9400')];// no white
     frameRate(fr);
     background(random(colors));
     noStroke();
@@ -22,7 +23,7 @@ function draw() {
     
     for (i = 0; i < 20; i++) {
         CELL_SIZE = random(20, 120);
-        
+
         for (j = 0; j < 100; j++) {
             circle(x*1.2, y*1.2, CELL_SIZE*0.75);
             x += CELL_SIZE;
