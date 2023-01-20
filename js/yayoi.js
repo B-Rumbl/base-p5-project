@@ -12,7 +12,7 @@ function setup() {
     frameRate(fr);
     background(random(colors));
     noStroke();
-    ellipseMode(CENTER);
+
 
 }
 
@@ -25,8 +25,10 @@ function draw() {
         CELL_SIZE = random(20, 120);
 
         for (j = 0; j < 100; j++) {
+            ellipseMode(CENTER);
             circle(x*1.2, y*1.2, CELL_SIZE*0.75);
             x += CELL_SIZE;
+            // rotate(PI)
         }
 
         y += CELL_SIZE;
