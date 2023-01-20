@@ -26,11 +26,11 @@ function setup() {
             }
         }
         y += curH;
-        let availH = height - y;
-        curH = random(sizes);
-        while (curH > availH) {
-            curH -= CELL_SIZE;
-        }
+        // let availH = height - y;
+        // curH = random(sizes);
+        // while (curH > availH) {
+        //     curH -= CELL_SIZE;
+        // }
         x = 0;
     }
 }

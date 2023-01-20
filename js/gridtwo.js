@@ -1,14 +1,12 @@
-let tex = [];
 let colors;
 let x = 0;
 let y = 0;
 
 function setup() {
-    colors = [color('#B31583'), color('#FFDC1F'), color('#FF06B5'), color('#1FFBFF'), color('#0CB0B3')]
-    createCanvas(windowWidth - (50), windowHeight - (50));
-    background(0);
-    const CELL_SIZE = 200;
-    frameRate(30);
+    colors = [color('#B31583'), color('#FFDC1F'), color('#FF06B5'), color('#1FFBFF'), color('#0CB0B3')];
+    createCanvas(windowWidth, windowHeight);
+    background(random(colors));
+    // frameRate(30);
     // while (y < height) {
     //     while (x < width) {
     //         noStroke();
@@ -40,11 +38,14 @@ function setup() {
     // }
 }
 function draw() {
-    const CELL_SIZE = 200;
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
+    const CELL_SIZE = x + random(50, 200);
+    y = x * 0.5;
+    for (i = 0; i < 100; i++) {
+        for (j = 0; j < 100; j++) {
             noStroke();
             //defining the variables below means that the "random" points remain the same for where x1, x2, y1, y2 etc are rendered
+            fill(random(colors));
+            // fill(random(10, 255));
             let x1 = x + random(CELL_SIZE);
             let y1 = y;
             let x2 = x;
@@ -52,19 +53,17 @@ function draw() {
             let x3 = x + random(CELL_SIZE);
             let y3 = y + CELL_SIZE;
             let r = random(10, 25);
-            // fill(random(colors));
-            // fill(random(10, 255));
-            noFill();
-            stroke(random(100, 255));
+            // noFill();
+            stroke(random(colors));
             strokeWeight(random(5, 10));
             strokeJoin(ROUND);
             triangle(x1, y1, x2, y2, x3, y3);
-            // fill(random(colors));
-            fill(255);
+            fill(random(colors));
+            // fill(255);
             // noFill();
             // stroke(random(50, 255));
             noStroke();
-            strokeWeight(random(5, 10))
+            strokeWeight(random(5, 10));
             ellipse(x1, y1, r);
             ellipse(x2, y2, r);
             ellipse(x3, y3, r);
