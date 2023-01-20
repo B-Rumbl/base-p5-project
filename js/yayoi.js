@@ -2,7 +2,7 @@ let colors;
 let x = 0;
 let y = 0;
 let fr = 13;
-let CELL_SIZE = 100;
+let CELL_SIZE = 150;
 let sizes = [CELL_SIZE, CELL_SIZE * 0.25, CELL_SIZE * 0.5, CELL_SIZE * 0.75];
 
 function setup() {
@@ -11,6 +11,7 @@ function setup() {
     frameRate(fr);
     background(random(colors));
     noStroke();
+    ellipseMode(CENTER);
 
 }
 
@@ -20,11 +21,10 @@ function draw() {
     fill(random(colors));
     
     for (i = 0; i < 20; i++) {
+        CELL_SIZE = random(20, 120);
         
-        
-        CELL_SIZE = random(sizes);
         for (j = 0; j < 100; j++) {
-            circle(x*1.2, y*1.2, CELL_SIZE);
+            circle(x*1.2, y*1.2, CELL_SIZE*0.75);
             x += CELL_SIZE;
         }
 
